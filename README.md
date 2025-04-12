@@ -2,9 +2,13 @@
 
 # Chat Embed
 
-Javascript library to display embed chatbot on your website
+Javascript library to display embed chatbot on your website. This repository is a customization of [FlowiseChatEmbed](https://github.com/FlowiseAI/FlowiseChatEmbed) with additional support for other backends like n8n.
 
 ![Chat Embed](https://github.com/khiemfle/chat-embed/blob/main/images/ChatEmbed.gif?raw=true)
+
+## Tribute
+
+This project is based on the excellent work by the [Flowise](https://github.com/FlowiseAI/Flowise) team. We extend our gratitude to them for creating the original chat embed library that made this customization possible.
 
 Install:
 
