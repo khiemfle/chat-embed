@@ -94,12 +94,21 @@ You can connect the chatbot to your own custom backend instead of using the defa
   Chatbot.init({
     customBackend: true,
     apiHost: 'https://your-custom-backend-api.com',
+    chatflowid: 'custom', // Required when using customBackend
     // Other configuration options...
   });
 </script>
 ```
 
-When using a custom backend, your API should handle the chat requests in a format compatible with the Flowise chat interface. Refer to the API documentation for details on the expected request and response formats.
+When using a custom backend, your API must implement the following three endpoint paths:
+
+```
+/api/v1/public-chatbotConfig/custom
+/api/v1/chatflows-streaming/custom
+/api/v1/prediction/custom
+```
+
+Note that the value `custom` for `chatflowid` is currently required when using a custom backend. Your API should handle the chat requests in a format compatible with the chat interface. Refer to the API documentation for details on the expected request and response formats.
 
 ## Configuration
 
