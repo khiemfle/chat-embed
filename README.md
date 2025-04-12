@@ -84,6 +84,23 @@ To enable full screen, add `margin: 0` to <code>body</code> style, and confirm y
 </body>
 ```
 
+## Custom Backend Support
+
+You can connect the chatbot to your own custom backend instead of using the default Flowise backend. This allows you to implement your own chat handling logic while still using the Flowise chat UI.
+
+```html
+<script type="module">
+  import Chatbot from 'https://cdn.jsdelivr.net/npm/flowise-embed/dist/web.js';
+  Chatbot.init({
+    customBackend: true,
+    apiHost: 'https://your-custom-backend-api.com',
+    // Other configuration options...
+  });
+</script>
+```
+
+When using a custom backend, your API should handle the chat requests in a format compatible with the Flowise chat interface. Refer to the API documentation for details on the expected request and response formats.
+
 ## Configuration
 
 You can also customize chatbot with different configuration
