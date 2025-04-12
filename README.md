@@ -240,7 +240,7 @@ You can also customize chatbot with different configuration
 
 The Flowise Embed Proxy Server enhances the security of your chatbot implementation by acting as a protective intermediary layer. This server eliminates the need to expose sensitive Flowise instance details in your frontend code and provides several key security benefits:
 
-![Proxy Server](https://github.com/FlowiseAI/FlowiseChatEmbed/blob/main/images/proxyserver.png?raw=true)
+![Proxy Server](https://github.com/khiemfle/chat-embed/blob/main/images/proxyserver.png?raw=true)
 
 - **Enhanced Security**: Conceals your Flowise API host and chatflow IDs from client-side exposure
 - **Access Control**: Implements strict domain-based restrictions for chatbot embedding
@@ -376,4 +376,4 @@ yarn dev
 
 ## License
 
-Source code in this repository is made available under the [MIT License](https://github.com/FlowiseAI/Flowise/blob/master/LICENSE.md).
+Source code in this repository is made available under the MIT License.
