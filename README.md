@@ -10,13 +10,16 @@ Javascript library to display embed chatbot on your website. This repository is 
 
 This project is based on the excellent work by the [Flowise](https://github.com/FlowiseAI/Flowise) team. We extend our gratitude to them for creating the original chat embed library that made this customization possible.
 
-Install:
+## Local testing
+
+Install dependencies:
+
 
 ```bash
 yarn install
 ```
 
-Dev:
+Run development server:
 
 ```bash
 yarn dev
