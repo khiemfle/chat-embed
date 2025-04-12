@@ -1,24 +1,31 @@
 <!-- markdownlint-disable MD030 -->
 
-# Flowise Embed
+# Chat Embed
 
-Javascript library to display flowise chatbot on your website
+Javascript library to display embed chatbot on your website. This repository is a customization of [FlowiseChatEmbed](https://github.com/FlowiseAI/FlowiseChatEmbed) with additional support for other backends like n8n.
 
-![Flowise](https://github.com/FlowiseAI/FlowiseChatEmbed/blob/main/images/ChatEmbed.gif?raw=true)
+![Chat Embed](https://github.com/khiemfle/chat-embed/blob/main/images/ChatEmbed.gif?raw=true)
 
-Install:
+## Tribute
+
+This project is based on the excellent work by the [Flowise](https://github.com/FlowiseAI/Flowise) team. We extend our gratitude to them for creating the original chat embed library that made this customization possible.
+
+## Local testing
+
+Install dependencies:
+
 
 ```bash
 yarn install
 ```
 
-Dev:
+Run development server:
 
 ```bash
 yarn dev
 ```
 
-A development server will be running on http://localhost:5678 automatically. Update `public/index.html` to connect directly to Flowise:
+A development server will be running on http://localhost:5678 automatically. Update `public/index.html` to connect directly to your chatbot:
 
 ```html
 <!-- public/index.html -->
@@ -43,7 +50,7 @@ yarn build
 
 ```html
 <script type="module">
-  import Chatbot from 'https://cdn.jsdelivr.net/npm/flowise-embed/dist/web.js';
+  import Chatbot from 'https://cdn.jsdelivr.net/gh/khiemfle/chat-embed@main/dist/web.js';
   Chatbot.init({
     chatflowid: '<chatflowid>',
     apiHost: 'http://localhost:3000',
@@ -55,7 +62,7 @@ yarn build
 
 ```html
 <script type="module">
-  import Chatbot from 'https://cdn.jsdelivr.net/npm/flowise-embed/dist/web.js';
+  import Chatbot from 'https://cdn.jsdelivr.net/gh/khiemfle/chat-embed@main/dist/web.js';
   Chatbot.initFull({
     chatflowid: '<chatflowid>',
     apiHost: 'http://localhost:3000',
@@ -69,7 +76,7 @@ To enable full screen, add `margin: 0` to <code>body</code> style, and confirm y
 ```html
 <body style="margin: 0">
   <script type="module">
-    import Chatbot from 'https://cdn.jsdelivr.net/npm/flowise-embed/dist/web.js';
+    import Chatbot from 'https://cdn.jsdelivr.net/gh/khiemfle/chat-embed@main/dist/web.js';
     Chatbot.initFull({
       chatflowid: '<chatflowid>',
       apiHost: 'http://localhost:3000',
@@ -84,13 +91,39 @@ To enable full screen, add `margin: 0` to <code>body</code> style, and confirm y
 </body>
 ```
 
+## Custom Backend Support
+
+You can connect the chatbot to your own custom backend instead of using the default Flowise backend. This allows you to implement your own chat handling logic while still using the Flowise chat UI.
+
+```html
+<script type="module">
+  import Chatbot from 'https://cdn.jsdelivr.net/gh/khiemfle/chat-embed@main/dist/web.js';
+  Chatbot.init({
+    customBackend: true,
+    apiHost: 'https://your-custom-backend-api.com',
+    chatflowid: 'custom', // Required when using customBackend
+    // Other configuration options...
+  });
+</script>
+```
+
+When using a custom backend, your API must implement the following three endpoint paths:
+
+```
+/api/v1/public-chatbotConfig/custom
+/api/v1/chatflows-streaming/custom
+/api/v1/prediction/custom
+```
+
+Note that the value `custom` for `chatflowid` is currently required when using a custom backend. Your API should handle the chat requests in a format compatible with the chat interface. Refer to the API documentation for details on the expected request and response formats.
+
 ## Configuration
 
 You can also customize chatbot with different configuration
 
 ```html
 <script type="module">
-  import Chatbot from 'https://cdn.jsdelivr.net/npm/flowise-embed/dist/web.js';
+  import Chatbot from 'https://cdn.jsdelivr.net/gh/khiemfle/chat-embed@main/dist/web.js';
   Chatbot.init({
     chatflowid: '91e9c803-5169-4db9-8207-3c0915d71c5f',
     apiHost: 'http://localhost:3000',
@@ -214,7 +247,7 @@ You can also customize chatbot with different configuration
 
 The Flowise Embed Proxy Server enhances the security of your chatbot implementation by acting as a protective intermediary layer. This server eliminates the need to expose sensitive Flowise instance details in your frontend code and provides several key security benefits:
 
-![Proxy Server](https://github.com/FlowiseAI/FlowiseChatEmbed/blob/main/images/proxyserver.png?raw=true)
+![Proxy Server](https://github.com/khiemfle/chat-embed/blob/main/images/proxyserver.png?raw=true)
 
 - **Enhanced Security**: Conceals your Flowise API host and chatflow IDs from client-side exposure
 - **Access Control**: Implements strict domain-based restrictions for chatbot embedding
@@ -350,4 +383,4 @@ yarn dev
 
 ## License
 
-Source code in this repository is made available under the [MIT License](https://github.com/FlowiseAI/Flowise/blob/master/LICENSE.md).
+Source code in this repository is made available under the MIT License.
