@@ -1,10 +1,10 @@
 <!-- markdownlint-disable MD030 -->
 
-# Flowise Embed
+# Chat Embed
 
-Javascript library to display flowise chatbot on your website
+Javascript library to display embed chatbot on your website
 
-![Flowise](https://github.com/FlowiseAI/FlowiseChatEmbed/blob/main/images/ChatEmbed.gif?raw=true)
+![Chat Embed](https://github.com/khiemfle/chat-embed/blob/main/images/ChatEmbed.gif?raw=true)
 
 Install:
 
@@ -18,7 +18,7 @@ Dev:
 yarn dev
 ```
 
-A development server will be running on http://localhost:5678 automatically. Update `public/index.html` to connect directly to Flowise:
+A development server will be running on http://localhost:5678 automatically. Update `public/index.html` to connect directly to your chatbot:
 
 ```html
 <!-- public/index.html -->
